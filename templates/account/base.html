@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block head_title %}{% endblock head_title %}</title>
+  {% block extra_head %}
+  {% endblock extra_head %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href=" {% static 'css2/style.css' %}">
+
+</head>
+
+<body>
+  {% block body %}
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="row justify-content-center">
+          <div class="col-md-auto col-lg-auto">
+            {% if messages %}
+            <div>
+              <ul>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+
+            {% block content %}
+            {% endblock content %}
+
+            {% endblock body %}
+            {% block extra_body %}
+            {% endblock extra_body %}
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <script src=" {% static 'js/jquery.min.js' %}"></script>
+  <script src=" {% static 'js/popper.js' %}"></script>
+  <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+  <script src=" {% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
